@@ -26,13 +26,17 @@ def parser(output):
         intervals.append(interval)
     return intervals
 
-server_ip = '192.168.103.10'
-result, error = client(server_ip)
+def main():
+    server_ip = '192.168.103.10'
+    result, error = client(server_ip)
 
-if error:
-    print(error)
-else:
-    result_list = parser(result)
-    for value in result_list:
-        if value['Transfer'] > 2 and value['Bitrate'] > 20:
-            print(value)
+    if error:
+        print(error)
+    else:
+        result_list = parser(result)
+        for value in result_list:
+            if value['Transfer'] > 2 and value['Bitrate'] > 20:
+                print(value)
+
+if __name__ == '__main__': 
+    main()
