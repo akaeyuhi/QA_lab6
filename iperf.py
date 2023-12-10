@@ -6,7 +6,7 @@ def client(server_ip):
         command = f"iperf3 -c {server_ip}"
         process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         stdout, stderr = process.communicate()
-        return stdout, None
+        return stdout, stderr
     except subprocess.CalledProcessError as e:
         return None, e.stderr
 
@@ -35,7 +35,7 @@ def main():
     else:
         result_list = parser(result)
         for value in result_list:
-            if value['Transfer'] > 2 and value['Bitrate'] > 20:
+            if value['Transfer'] > 2 and value['Bitrate'] > 1:
                 print(value)
 
 if __name__ == '__main__': 

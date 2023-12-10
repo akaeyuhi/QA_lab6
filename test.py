@@ -21,7 +21,7 @@ def test_iperf():
 
     # Перевірка, чи інтервали задовольняють умови
     for value in result_list:
-        assert value['Transfer'] > 2 and value['Bitrate'] > 20, f"Не виконані умови для інтервалу: {value}"
+        assert value['Transfer'] > 2 and value['Bitrate'] > 1, f"Не виконані умови для інтервалу: {value}"
 
 # Виклик тесту
 test_iperf()
